@@ -1,6 +1,8 @@
 package RPG;
 
 public abstract class Character {
+    //needing to add Interface to Character? to implement and get it into the RPG classes to call on methods?
+    //See course notes with engine engine;
     private final String name;
     private int level;
     private PrimaryAttribute basePrimaryAttributes;
