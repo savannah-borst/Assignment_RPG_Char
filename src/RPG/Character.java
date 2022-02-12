@@ -18,4 +18,8 @@ public abstract class Character {
     public int getLevel() {
         return level;
     }
+
+    public void levelUp() {
+        level++;
+    }
 }
