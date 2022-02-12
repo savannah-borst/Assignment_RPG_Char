@@ -10,4 +10,16 @@ public class PrimaryAttribute {
         this.dexterity = dexterity;
         this.intelligence = intelligence;
     }
+
+    public void setStrength(int strength) {
+        this.strength += strength;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity += dexterity;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence += intelligence;
+    }
 }
