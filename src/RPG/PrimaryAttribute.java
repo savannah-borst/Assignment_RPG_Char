@@ -5,12 +5,14 @@ public class PrimaryAttribute {
     private int dexterity;
     private int intelligence;
 
+    //constructor
     public PrimaryAttribute(int strength, int dexterity, int intelligence) {
         this.strength = strength;
         this.dexterity = dexterity;
         this.intelligence = intelligence;
     }
 
+    //setters
     public void setStrength(int strength) {
         this.strength += strength;
     }
@@ -21,5 +23,18 @@ public class PrimaryAttribute {
 
     public void setIntelligence(int intelligence) {
         this.intelligence += intelligence;
+    }
+
+    //getters
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public int getStrength() {
+        return strength;
     }
 }
