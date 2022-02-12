@@ -1,7 +1,7 @@
 package RPG;
 
 public abstract class Character {
-    private String name;
+    private final String name;
     private int level;
     //base prim attr
     //total prim attr
