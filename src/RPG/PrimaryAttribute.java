@@ -12,7 +12,7 @@ public class PrimaryAttribute {
         this.intelligence = intelligence;
     }
 
-    //setters
+    //setters - has to be turned to one setter all at the same time (lvl up)
     public void setStrength(int strength) {
         this.strength += strength;
     }
