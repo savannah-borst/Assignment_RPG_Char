@@ -1,10 +1,10 @@
 package RPG;
 
 public interface Hero {
-    void getName();
-    void getLevel();
+    String getName();
+    int getLevel();
     void levelup();
-    void getBaseAttributes();
+    String getBaseAttributes();
 
 
 

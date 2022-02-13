@@ -1,6 +1,6 @@
 package RPG;
 
-public abstract class Character {
+public abstract class Character implements Hero{
     //needing to add Interface to Character? to implement and get it into the RPG classes to call on methods?
     //See course notes with engine engine;
     private final String name;
