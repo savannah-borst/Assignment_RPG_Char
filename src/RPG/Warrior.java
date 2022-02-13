@@ -5,6 +5,7 @@ public class Warrior extends Character{
         super(name, 5, 2, 1);
     }
 
+    // level up + argument for added attributes.
     @Override
     public void levelup() {
         super.levelup(3, 2, 1);

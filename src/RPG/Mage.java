@@ -6,6 +6,7 @@ public class Mage extends Character {
         super(name, 1, 1, 8);
     }
 
+    // level up + argument for added attributes.
     @Override
     public void levelup() {
         super.levelup(1, 1, 5);

@@ -1,13 +1,13 @@
 package RPG;
 
 public abstract class Character implements Hero{
-    //needing to add Interface to Character? to implement and get it into the RPG classes to call on methods?
-    //See course notes with engine engine;
+
     private final String name;
     private int level;
     private PrimaryAttribute basePrimaryAttributes;
     //total prim attr
 
+    //constructor
     public Character(String name, int strength, int dexterity, int intelligence) {
         this.name = name;
         this.level = 1;
@@ -22,7 +22,9 @@ public abstract class Character implements Hero{
         return level;
     }
 
+    // level up + argument for added attributes.
     public void levelup(int strength, int dexterity, int intelligence) {
+        level++;
         this.basePrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
     }
 

@@ -5,6 +5,7 @@ public class Rogue extends Character{
         super(name, 2, 6, 1);
     }
 
+    // level up + argument for added attributes.
     @Override
     public void levelup() {
         super.levelup(1, 4, 1);
