@@ -6,5 +6,8 @@ public class Mage extends Character {
         super(name, 1, 1, 8);
     }
 
-
+    @Override
+    public String getBaseAttributes() {
+        return super.getBaseAttributes();
+    }
 }

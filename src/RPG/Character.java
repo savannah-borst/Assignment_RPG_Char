@@ -25,6 +25,6 @@ public abstract class Character {
     //public void levelUp() { level++;}
 
     public String getBaseAttributes() {
-        return this.basePrimaryAttributes.getStrength() + ", " + this.basePrimaryAttributes.getDexterity() + ", " + this.basePrimaryAttributes.getIntelligence();
+        return this.basePrimaryAttributes.getAllAttributes();
     }
 }
