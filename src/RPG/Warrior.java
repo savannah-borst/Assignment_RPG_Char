@@ -9,4 +9,9 @@ public class Warrior extends Character{
     public void levelup() {
         super.levelup(3, 2, 1);
     }
+
+    @Override
+    public String getBaseAttributes() {
+        return super.getBaseAttributes();
+    }
 }

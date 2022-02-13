@@ -9,4 +9,9 @@ public class Ranger extends Character{
     public void levelup() {
         super.levelup(1, 5, 1);
     }
+
+    @Override
+    public String getBaseAttributes() {
+        return super.getBaseAttributes();
+    }
 }

@@ -10,4 +10,9 @@ public class Mage extends Character {
     public void levelup() {
         super.levelup(1, 1, 5);
     }
+
+    @Override
+    public String getBaseAttributes() {
+        return super.getBaseAttributes();
+    }
 }

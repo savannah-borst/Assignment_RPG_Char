@@ -16,6 +16,9 @@ public class Main {
         System.out.println(mathijs.getName() + " " + mathijs.getLevel() + " " + mathijs.getBaseAttributes());
 
         jael.levelup();
+        savannah.levelup();
+        charona.levelup();
+        mathijs.levelup();
         System.out.println(jael.getName() + " " + jael.getLevel() + " " + jael.getBaseAttributes());
 
     }
