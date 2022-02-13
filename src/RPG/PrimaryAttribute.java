@@ -13,6 +13,12 @@ public class PrimaryAttribute {
     }
 
     //setters - has to be turned to one setter all at the same time (lvl up)
+    public void setAllAttributes(int strength, int dexterity, int intelligence) {
+        this.strength += strength;
+        this.dexterity += dexterity;
+        this.intelligence += intelligence;
+    }
+
     public void setStrength(int strength) {
         this.strength += strength;
     }
