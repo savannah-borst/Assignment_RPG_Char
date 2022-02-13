@@ -5,7 +5,7 @@ public abstract class Character implements Hero{
     private final String name;
     private int level;
     private PrimaryAttribute basePrimaryAttributes;
-    //total prim attr
+    private PrimaryAttribute totalPrimaryAttributes;
 
     //constructor
     public Character(String name, int strength, int dexterity, int intelligence) {
