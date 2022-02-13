@@ -26,6 +26,10 @@ public class PrimaryAttribute {
     }
 
     //getters
+    public String getAllAttributes() {
+        return strength + ", " + dexterity + ", " + intelligence;
+    }
+
     public int getDexterity() {
         return dexterity;
     }
