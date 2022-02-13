@@ -5,7 +5,4 @@ public interface Hero {
     int getLevel();
     void levelup();
     String getBaseAttributes();
-
-
-
 }

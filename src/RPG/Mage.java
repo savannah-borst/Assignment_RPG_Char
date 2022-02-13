@@ -7,7 +7,7 @@ public class Mage extends Character {
     }
 
     @Override
-    public String getBaseAttributes() {
-        return super.getBaseAttributes();
+    public void levelup() {
+        super.levelup(1, 1, 5);
     }
 }
