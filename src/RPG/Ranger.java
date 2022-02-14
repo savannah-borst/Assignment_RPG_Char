@@ -5,7 +5,6 @@ public class Ranger extends Character{
         super(name, 1, 7, 1);
     }
 
-    // level up + argument for added attributes.
     // level up + set attributes.
     public void levelup() {
         super.setLevel(1);
