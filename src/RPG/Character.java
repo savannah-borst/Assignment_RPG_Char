@@ -33,4 +33,8 @@ public abstract class Character {
     public String getBaseAttributes() {
         return this.basePrimaryAttributes.getAllAttributes();
     }
+
+    public abstract void equipWeapon(Weapon weapon);
+
+    //public abstract void equipArmor();
 }

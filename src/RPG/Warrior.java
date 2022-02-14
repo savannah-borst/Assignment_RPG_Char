@@ -1,6 +1,7 @@
 package RPG;
 
-public class Warrior extends Character{
+public class Warrior extends Character {
+
     public Warrior(String name) {
         super(name, 5, 2, 1);
     }
@@ -21,5 +22,15 @@ public class Warrior extends Character{
         String[] attr = super.getBaseAttributes().split(",");
         //strength is at index 0
         return Integer.parseInt(attr[0]);
+    }
+
+    public void equipWeapon(Weapon weapon) {
+        if (weapon.type != Weapon.WeaponType.AXE || weapon.type != Weapon.WeaponType.HAMMER || weapon.type != Weapon.WeaponType.SWORD) {
+            //throw custom InvalidWeaponException
+        } else if (weapon.getRequiredLevel() > super.getLevel()) {
+            //throw custom InvalidWeaponException
+        } else {
+            //put into slot.
+        }
     }
 }
