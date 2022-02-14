@@ -22,9 +22,12 @@ public abstract class Character implements Hero{
         return level;
     }
 
-    // level up + argument for added attributes.
-    public void levelup(int strength, int dexterity, int intelligence) {
-        level++;
+    public void setLevel(int level){
+        this.level += level;
+    }
+
+    @Override
+    public void setBaseAttributes(int strength, int dexterity, int intelligence) {
         this.basePrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
     }
 
