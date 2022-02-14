@@ -61,4 +61,36 @@ class CharacterTest {
         String actual= testWarrior.getBaseAttributes();
         assertEquals(expected, actual);
     }
+
+    @Test
+    void mageAttributeIncrease_validInputs_shouldReturnTwoTwoThirteen() {
+        testMage.levelup();
+        String expected = "2, 2, 13";
+        String actual = testMage.getBaseAttributes();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void rangerAttributeIncrease_validInputs_shouldReturnTwoTwelveTwo(){
+        testRanger.levelup();
+        String expected = "2, 12, 2";
+        String actual = testRanger.getBaseAttributes();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void rogueAttributesIncrease_validInputs_shouldReturnThreeTenTwo() {
+        testRogue.levelup();
+        String expected = "3, 10, 2";
+        String actual = testRogue.getBaseAttributes();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void warriorAttributeIncrease_validInputs_shouldReturnEightFourTwo() {
+        testWarrior.levelup();
+        String expected = "8, 4, 2";
+        String actual = testWarrior.getBaseAttributes();
+        assertEquals(expected, actual);
+    }
 }
