@@ -6,12 +6,14 @@ public abstract class Character {
     private int level;
     private PrimaryAttribute basePrimaryAttributes;
     private PrimaryAttribute totalPrimaryAttributes;
+    private Equipment charEquipment;
 
     //constructor
     public Character(String name, int strength, int dexterity, int intelligence) {
         this.name = name;
         this.level = 1;
         this.basePrimaryAttributes = new PrimaryAttribute(strength, dexterity, intelligence); //set up PrimaryAttribute
+        this.charEquipment = new Equipment();
     }
 
     public String getName() {
@@ -34,7 +36,14 @@ public abstract class Character {
         return this.basePrimaryAttributes.getAllAttributes();
     }
 
-    public abstract void equipWeapon(Weapon weapon);
+    public void equipWeapon(Weapon weapon) {
+        this.charEquipment.setWeapon(weapon);
+    }
+
+    //refactor to get weapon
+    public String getCharEquipment() {
+        return this.charEquipment.getWeapon();
+    }
 
     //public abstract void equipArmor();
 }
