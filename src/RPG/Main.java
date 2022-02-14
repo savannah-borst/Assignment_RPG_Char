@@ -11,5 +11,9 @@ public class Main {
 
         System.out.println(thor.getCharEquipment());
         System.out.println(thor.getCharEquipment());
+
+        //TO DO
+        //Weapon check! + making Armor
+
     }
 }
