@@ -1,6 +1,7 @@
 package RPG;
 
 public class Mage extends Character {
+
     public Mage(String name) {
         super(name, 1, 1, 8);
     }
@@ -21,5 +22,15 @@ public class Mage extends Character {
         String[] attr = super.getBaseAttributes().split(",");
         //intelligence is at index 2
         return Integer.parseInt(attr[2]);
+    }
+
+    public void equipWeapon(Weapon weapon) {
+        if (weapon.type != Weapon.WeaponType.STAFF || weapon.type != Weapon.WeaponType.WAND) {
+            //throw custom InvalidWeaponException
+        } else if (weapon.getRequiredLevel() > super.getLevel()) {
+            //throw custom InvalidWeaponException
+        } else {
+            //put into slot.
+        }
     }
 }

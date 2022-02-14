@@ -1,6 +1,7 @@
 package RPG;
 
-public class Rogue extends Character{
+public class Rogue extends Character {
+
     public Rogue(String name) {
         super(name, 2, 6, 1);
     }
@@ -21,5 +22,15 @@ public class Rogue extends Character{
         String[] attr = super.getBaseAttributes().split(",");
         //dexterity is at index 1
         return Integer.parseInt(attr[1]);
+    }
+
+    public void equipWeapon(Weapon weapon) {
+        if (weapon.type != Weapon.WeaponType.DAGGER || weapon.type != Weapon.WeaponType.SWORD) {
+            //throw custom InvalidWeaponException
+        } else if (weapon.getRequiredLevel() > super.getLevel()) {
+            //throw custom InvalidWeaponException
+        } else {
+            //put into slot.
+        }
     }
 }
