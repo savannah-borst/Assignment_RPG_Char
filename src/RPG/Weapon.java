@@ -8,13 +8,13 @@ public class Weapon extends Item {
 
         //took some inspiration from: https://stackoverflow.com/questions/48627744/how-do-you-implement-an-enum-in-an-object-class-java/48627811
     enum WeaponType {
-        AXES,
-        BOWS,
-        DAGGERS,
-        HAMMERS,
-        STAFFS,
-        SWORDS,
-        WANDS
+        AXE,
+        BOW,
+        DAGGER,
+        HAMMER,
+        STAFF,
+        SWORD,
+        WAND
     }
 
     //constructor
