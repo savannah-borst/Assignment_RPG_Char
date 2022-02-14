@@ -7,7 +7,7 @@ public class Ranger extends Character{
 
     // level up + set attributes.
     public void levelup() {
-        super.setLevel(1);
+        super.setLevel();
         super.setBaseAttributes(1, 5, 1);
     }
 

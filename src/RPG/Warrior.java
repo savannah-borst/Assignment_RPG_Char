@@ -7,7 +7,7 @@ public class Warrior extends Character{
 
     // level up + set attributes.
     public void levelup() {
-        super.setLevel(1);
+        super.setLevel();
         super.setBaseAttributes(3, 2, 1);
     }
 

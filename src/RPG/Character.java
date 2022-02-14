@@ -22,8 +22,8 @@ public abstract class Character {
         return level;
     }
 
-    public void setLevel(int level){
-        this.level += level;
+    public void setLevel(){
+        this.level++;
     }
 
     public void setBaseAttributes(int strength, int dexterity, int intelligence) {
