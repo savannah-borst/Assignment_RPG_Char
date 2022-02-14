@@ -6,9 +6,10 @@ public class Warrior extends Character{
     }
 
     // level up + argument for added attributes.
-    @Override
+    // level up + set attributes.
     public void levelup() {
-        super.levelup(3, 2, 1);
+        super.setLevel(1);
+        super.setBaseAttributes(3, 2, 1);
     }
 
     @Override

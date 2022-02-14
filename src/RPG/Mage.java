@@ -6,10 +6,10 @@ public class Mage extends Character {
         super(name, 1, 1, 8);
     }
 
-    // level up + argument for added attributes.
-    @Override
+    // level up + set attributes.
     public void levelup() {
-        super.levelup(1, 1, 5);
+        super.setLevel(1);
+        super.setBaseAttributes(1, 1, 5);
     }
 
     @Override
