@@ -15,4 +15,11 @@ public class Mage extends Character {
     public String getBaseAttributes() {
         return super.getBaseAttributes();
     }
+
+    public int getDamageIncrease() {
+        //each point of intelligence increases mage damage
+        String[] attr = super.getBaseAttributes().split(",");
+        //intelligence is at index 2
+        return Integer.parseInt(attr[2]);
+    }
 }

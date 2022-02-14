@@ -15,4 +15,11 @@ public class Rogue extends Character{
     public String getBaseAttributes() {
         return super.getBaseAttributes();
     }
+
+    public int getDamageIncrease() {
+        //each point of Dexterity increases rogue damage
+        String[] attr = super.getBaseAttributes().split(",");
+        //dexterity is at index 1
+        return Integer.parseInt(attr[1]);
+    }
 }

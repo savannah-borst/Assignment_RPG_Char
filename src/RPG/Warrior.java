@@ -15,4 +15,11 @@ public class Warrior extends Character{
     public String getBaseAttributes() {
         return super.getBaseAttributes();
     }
+
+    public int getDamageIncrease() {
+        //each point of strength increases warrior damage
+        String[] attr = super.getBaseAttributes().split(",");
+        //strength is at index 0
+        return Integer.parseInt(attr[0]);
+    }
 }
