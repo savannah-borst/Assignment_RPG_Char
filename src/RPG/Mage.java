@@ -24,25 +24,19 @@ public class Mage extends Character {
         return Integer.parseInt(attr[2]);
     }
 
-    public void setEquipment(Item item) throws InvalidWeaponException, InvalidArmorException {
+    //Equip to check Weapon and armor type. level check in Character abstract class
+    public void Equip(Item item) throws InvalidWeaponException, InvalidArmorException {
         Slot slotCheck  = item.getSlot();
+        //Weapon
         if (slotCheck == Slot.WEAPON) {
-            //check level requirement
-            if (item.getRequiredLevel() > super.getLevel()) {
-                throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + " to equip.");
-            }
-            // check if types are equal to Staff,Wand. if so set equipment if not throw.
-            else if (item.getWeaponType() == Weapon.Type.STAFF || item.getWeaponType() == Weapon.Type.WAND) {
+            if (item.getWeaponType() == Weapon.Type.STAFF || item.getWeaponType() == Weapon.Type.WAND) {
                 super.setEquipment(item.getSlot(), item);
             } else {
                 throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Staffs, Wands.");
             }
         }
-
+        //Armor
         if (slotCheck == Slot.BODY || slotCheck == Slot.HEAD || slotCheck == Slot.LEGS) {
-            if (item.getRequiredLevel() > super.getLevel()) {
-                throw new InvalidArmorException("The level of this armor is to high for " + super.getName() + " to equip.");
-            }
             if (item.getArmorType() == Armor.Type.CLOTH) {
                 super.setEquipment(item.getSlot(), item);
             } else {

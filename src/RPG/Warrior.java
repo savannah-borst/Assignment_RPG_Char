@@ -24,13 +24,11 @@ public class Warrior extends Character {
         return Integer.parseInt(attr[0]);
     }
 
-    public void setEquipment(Item item) throws InvalidWeaponException, InvalidArmorException {
+    //Equip to check Weapon and armor type. level check in Character abstract class
+    public void Equip(Item item) throws InvalidWeaponException, InvalidArmorException {
         Slot slotCheck  = item.getSlot();
+        //Weapon
         if (slotCheck == Slot.WEAPON) {
-            //check level requirement
-            if (item.getRequiredLevel() > super.getLevel()) {
-                throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + " to equip.");
-            }
             // check if types are equal to Axe, Hammer and sword. if so set equipment if not throw.
             if (item.getWeaponType() == Weapon.Type.AXE || item.getWeaponType() == Weapon.Type.HAMMER || item.getWeaponType() == Weapon.Type.SWORD) {
                 super.setEquipment(item.getSlot(), item);
@@ -38,11 +36,8 @@ public class Warrior extends Character {
                 throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Axes, Hammers and Swords.");
             }
         }
-
+        //Armor
         if (slotCheck == Slot.BODY || slotCheck == Slot.HEAD || slotCheck == Slot.LEGS) {
-            if (item.getRequiredLevel() > super.getLevel()) {
-                throw new InvalidArmorException("The level of this armor is to high for " + super.getName() + " to equip.");
-            }
             if (item.getArmorType() == Armor.Type.MAIL || item.getArmorType() == Armor.Type.PLATE) {
                 super.setEquipment(item.getSlot(), item);
             } else {

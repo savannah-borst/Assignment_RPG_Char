@@ -48,12 +48,23 @@ public abstract class Character {
         this.basePrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
     }
 
-    public void setEquipment(Slot slot, Item item) {
-        equipment.put(slot, item);
-    }
-
     public void setTotalPrimaryAttributes(PrimaryAttribute totalPrimaryAttributes) {
         this.totalPrimaryAttributes = totalPrimaryAttributes;
     }
+
+    public void setEquipment(Slot slot, Item item) throws InvalidWeaponException, InvalidArmorException {
+        //Level check throws exception for appropriate gear type
+        if (item.getRequiredLevel() > this.getLevel()) {
+            if (slot == Slot.WEAPON) {
+                throw new InvalidWeaponException("The level of this weapon is to high for " + this.getName() + " to equip.");
+            } else if (slot == Slot.BODY || slot == Slot.LEGS || slot == Slot.HEAD) {
+                throw new InvalidArmorException("The level of this armor is to high for " + this.getName() + " to equip.");
+            }
+        } else {
+            equipment.put(slot, item);
+        }
+    }
+
+
 
 }

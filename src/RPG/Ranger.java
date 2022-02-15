@@ -24,25 +24,20 @@ public class Ranger extends Character {
         return Integer.parseInt(attr[1]);
     }
 
-    public void setEquipment(Item item) throws InvalidWeaponException, InvalidArmorException {
+    //Equip to check Weapon and armor type. level check in Character abstract class
+    public void Equip(Item item) throws InvalidWeaponException, InvalidArmorException {
         Slot slotCheck  = item.getSlot();
+        //Weapon
         if (slotCheck == Slot.WEAPON) {
             //check level requirement
-            if (item.getRequiredLevel() > super.getLevel()) {
-                throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + " to equip.");
-            }
-            // check if type is equal to Bow. if so set equipment if not throw.
-            else if (item.getWeaponType() == Weapon.Type.BOW) {
+            if (item.getWeaponType() == Weapon.Type.BOW) {
                 super.setEquipment(item.getSlot(), item);
             } else {
                 throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Bow.");
             }
         }
-
+        //Armor
         if (slotCheck == Slot.BODY || slotCheck == Slot.HEAD || slotCheck == Slot.LEGS) {
-            if (item.getRequiredLevel() > super.getLevel()) {
-                throw new InvalidArmorException("The level of this armor is to high for " + super.getName() + " to equip.");
-            }
             if (item.getArmorType() == Armor.Type.MAIL || item.getArmorType() == Armor.Type.LEATHER) {
                 super.setEquipment(item.getSlot(), item);
             } else {
