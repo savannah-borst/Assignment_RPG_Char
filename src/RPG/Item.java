@@ -4,16 +4,25 @@ public abstract class Item {
     private final String name;
     private final int requiredLevel;
     private final Slot slot;
-    private Weapon.Type type;
+    private Weapon.Type weaponType;
+    private Armor.Type armorType;
 
-
+    // constructor for weapon
     public Item(String name, int requiredLevel, Slot slot, Weapon.Type type) {
         this.name = name;
         this.requiredLevel = requiredLevel;
         this.slot = slot;
-        this.type = type;
+        this.weaponType = type;
     }
 
+    //constructor for Armor
+    public Item(String name, int requiredLevel, Slot slot, Armor.Type type) {
+        this.name = name;
+        this.requiredLevel = requiredLevel;
+        this.slot = slot;
+        this.armorType = type;
+    }
+    
     //getters
     public String getName() {
         return name;
@@ -28,6 +37,6 @@ public abstract class Item {
     }
 
     public Weapon.Type getType() {
-        return type;
+        return weaponType;
     }
 }
