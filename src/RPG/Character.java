@@ -15,6 +15,7 @@ public abstract class Character {
         this.name = name;
         this.level = 1;
         this.basePrimaryAttributes = new PrimaryAttribute(strength, dexterity, intelligence); //set up PrimaryAttribute
+        this.equipment = new HashMap<>();
     }
 
     //getters
@@ -47,11 +48,12 @@ public abstract class Character {
         this.basePrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
     }
 
-    public void setEquipment(HashMap<Slot, Item> equipment) {
-        this.equipment = equipment;
+    public void setEquipment(Slot slot, Item item) {
+        equipment.put(slot, item);
     }
 
     public void setTotalPrimaryAttributes(PrimaryAttribute totalPrimaryAttributes) {
         this.totalPrimaryAttributes = totalPrimaryAttributes;
     }
+
 }
