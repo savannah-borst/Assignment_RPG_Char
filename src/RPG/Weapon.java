@@ -19,7 +19,7 @@ public class Weapon extends Item {
 
     //constructor
     public Weapon(String name, int requiredLevel, Slot slot, Type type, int damage, double attackPerSec) {
-        super(name, requiredLevel, slot);
+        super(name, requiredLevel, slot, type);
         this.type = type;
         this.damage = damage;
         this.attackPerSec = attackPerSec;
