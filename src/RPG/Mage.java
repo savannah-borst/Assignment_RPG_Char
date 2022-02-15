@@ -24,13 +24,21 @@ public class Mage extends Character {
         return Integer.parseInt(attr[2]);
     }
 
-    public void equipWeapon(Weapon weapon) {
-        if (weapon.type != Weapon.Type.STAFF || weapon.type != Weapon.Type.WAND) {
-            //throw custom InvalidWeaponException
-        } else if (weapon.getRequiredLevel() > super.getLevel()) {
-            //throw custom InvalidWeaponException
-        } else {
-            //put into slot.
+    public void setEquipment(Item item) throws InvalidWeaponException, InvalidArmorException {
+
+        if (item.getSlot() == Slot.WEAPON) {
+            //check level requirement
+            if (item.getRequiredLevel() > super.getLevel()) {
+                throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + " to equip.");
+            }
+            // check if types are equal to Staff,Wand. if so set equipment if not throw.
+            else if (item.getType() == Weapon.Type.STAFF || item.getType() == Weapon.Type.WAND) {
+                super.setEquipment(item.getSlot(), item);
+            } else {
+                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getType() + " but can equip: Staffs, Wands.");
+            }
         }
+
+        //Armor
     }
 }

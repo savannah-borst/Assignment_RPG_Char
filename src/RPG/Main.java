@@ -14,6 +14,7 @@ public class Main {
 
         //TO DO
         //Weapon check! + making Armor
+        //refactor seteEQuipment
 
     }
 }

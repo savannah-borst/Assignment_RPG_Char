@@ -35,7 +35,7 @@ public class Warrior extends Character {
             else if (item.getType() == Weapon.Type.AXE || item.getType() == Weapon.Type.HAMMER || item.getType() == Weapon.Type.SWORD) {
                 super.setEquipment(item.getSlot(), item);
             } else {
-                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getType() + " but can equip: Axes, hammers and swords.");
+                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getType() + " but can equip: Axes, Hammers and Swords.");
             }
         }
 
