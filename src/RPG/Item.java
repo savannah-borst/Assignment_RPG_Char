@@ -36,7 +36,7 @@ public abstract class Item {
         return slot;
     }
 
-    public Weapon.Type getType() {
+    public Weapon.Type getWeaponType() {
         return weaponType;
     }
 

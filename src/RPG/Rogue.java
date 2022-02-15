@@ -32,10 +32,10 @@ public class Rogue extends Character {
                 throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + " to equip.");
             }
             // check if types are equal to Axe, Hammer and sword. if so set equipment if not throw.
-            else if (item.getType() == Weapon.Type.DAGGER || item.getType() == Weapon.Type.SWORD) {
+            else if (item.getWeaponType() == Weapon.Type.DAGGER || item.getWeaponType() == Weapon.Type.SWORD) {
                 super.setEquipment(item.getSlot(), item);
             } else {
-                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getType() + " but can equip: Daggers, Swords.");
+                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Daggers, Swords.");
             }
         }
 

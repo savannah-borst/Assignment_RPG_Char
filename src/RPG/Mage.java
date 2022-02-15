@@ -32,10 +32,10 @@ public class Mage extends Character {
                 throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + " to equip.");
             }
             // check if types are equal to Staff,Wand. if so set equipment if not throw.
-            else if (item.getType() == Weapon.Type.STAFF || item.getType() == Weapon.Type.WAND) {
+            else if (item.getWeaponType() == Weapon.Type.STAFF || item.getWeaponType() == Weapon.Type.WAND) {
                 super.setEquipment(item.getSlot(), item);
             } else {
-                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getType() + " but can equip: Staffs, Wands.");
+                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Staffs, Wands.");
             }
         }
 
