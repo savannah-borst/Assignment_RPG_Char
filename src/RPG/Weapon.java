@@ -1,7 +1,6 @@
 package RPG;
 
 public class Weapon extends Item {
-    Type type;
     private final int damage;
     private final double attackPerSec;
     private final double DPS;
@@ -20,14 +19,9 @@ public class Weapon extends Item {
     //constructor
     public Weapon(String name, int requiredLevel, Slot slot, Type type, int damage, double attackPerSec) {
         super(name, requiredLevel, slot, type);
-        this.type = type;
         this.damage = damage;
         this.attackPerSec = attackPerSec;
         this.DPS = damage * attackPerSec;
-    }
-
-    public Type getType() {
-        return type;
     }
 
     public int getDamage() {

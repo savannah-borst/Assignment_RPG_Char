@@ -1,7 +1,6 @@
 package RPG;
 
 public class Armor extends Item{
-    private Type type;
     private PrimaryAttribute armorAttributes;
 
     //took some inspiration from: https://stackoverflow.com/questions/48627744/how-do-you-implement-an-enum-in-an-object-class-java/48627811
@@ -11,7 +10,13 @@ public class Armor extends Item{
         MAIL,
         PLATE
     }
-    public Armor(String name, int requiredLevel, Slot slot, Armor.Type type) {
+    public Armor(String name, int requiredLevel, Slot slot, Armor.Type type, int strength, int dexterity, int intelligence) {
         super(name, requiredLevel, slot, type);
+        this.armorAttributes = new PrimaryAttribute(strength, dexterity, intelligence);
     }
+
+    public String getBaseAttributes() {
+        return this.armorAttributes.getAllAttributes();
+    }
+
 }
