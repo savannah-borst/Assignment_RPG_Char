@@ -25,12 +25,17 @@ public class Warrior extends Character {
     }
 
     public void setEquipment(Item item) throws InvalidWeaponException {
-        if (item.getSlot() == Slot.WEAPON) {
 
+        if (item.getSlot() == Slot.WEAPON) {
+            // check if types are equal to Axe, Hammer and sword. if so set equipment.
             if (item.getType() == Weapon.Type.AXE || item.getType() == Weapon.Type.HAMMER || item.getType() == Weapon.Type.SWORD) {
                 super.setEquipment(item.getSlot(), item);
-            }else if (item.getRequiredLevel() > super.getLevel()) {
+
+                //check level requirement
+            } else if (item.getRequiredLevel() > super.getLevel()) {
                 throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + "to equip.");
+
+                // else throw
             } else {
                 throw new InvalidWeaponException(super.getName() + " can't equip " + item.getType() + " but can equip: Axes, hammers and swords.");
             }
