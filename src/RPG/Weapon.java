@@ -18,7 +18,7 @@ public class Weapon extends Item {
     }
 
     //constructor
-    public Weapon(String name, int requiredLevel, String slot, WeaponType type, int damage, double attackPerSec) {
+    public Weapon(String name, int requiredLevel, Slot slot, WeaponType type, int damage, double attackPerSec) {
         super(name, requiredLevel, slot);
         this.type = type;
         this.damage = damage;

@@ -3,9 +3,10 @@ package RPG;
 public abstract class Item {
     private String name;
     private int requiredLevel;
-    private String slot;
+    private Slot slot;
 
-    public Item(String name, int requiredLevel, String slot) {
+
+    public Item(String name, int requiredLevel, Slot slot) {
         this.name = name;
         this.requiredLevel = requiredLevel;
         this.slot = slot;
@@ -18,9 +19,5 @@ public abstract class Item {
 
     public int getRequiredLevel() {
         return requiredLevel;
-    }
-
-    public String getSlot() {
-        return slot;
     }
 }
