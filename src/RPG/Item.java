@@ -22,7 +22,7 @@ public abstract class Item {
         this.slot = slot;
         this.armorType = type;
     }
-    
+
     //getters
     public String getName() {
         return name;
@@ -38,5 +38,9 @@ public abstract class Item {
 
     public Weapon.Type getType() {
         return weaponType;
+    }
+
+    public Armor.Type getArmorType() {
+        return armorType;
     }
 }
