@@ -1,7 +1,9 @@
 package RPG;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +21,7 @@ class CharacterTest {
         testWarrior = new Warrior("testWarrior");
     }
 
+    //Character attribute and level tests
     @Test
     void getStartLevel_ValidInputs_shouldReturnOne() {
         int expected = 1;
@@ -93,4 +96,32 @@ class CharacterTest {
         String actual = testWarrior.getBaseAttributes();
         assertEquals(expected, actual);
     }
+
+    //Items and equipment tests
+    @Test
+    void highLevelWeapon_invalidInputs_shouldThrowInvalidWeaponException() {
+        // help from: https://www.codejava.net/testing/junit-test-exception-examples-how-to-assert-an-exception-is-thrown
+        assertThrows(InvalidWeaponException.class, new Executable() {
+
+            @Override
+           public void execute() throws Throwable {
+               Weapon testWeapon = new Weapon("Common Axe", 2, Slot.WEAPON, Weapon.Type.AXE, 7, 1.1);
+               testWarrior.Equip(testWeapon);
+           }
+        });
+    }
+
+    @Test
+    void highLevelArmor_invalidInputs_shouldThrowInvalidArmorException() {
+        assertThrows(InvalidArmorException.class, new Executable() {
+
+            @Override
+            public void execute() throws Throwable {
+                Armor testPlateBody = new Armor("Common Plate Body Armor", 2, Slot.BODY, Armor.Type.PLATE, 1, 0,0);
+                testWarrior.Equip(testPlateBody);
+            }
+        });
+    }
+
+
 }
