@@ -24,21 +24,21 @@ public class Warrior extends Character {
         return Integer.parseInt(attr[0]);
     }
 
-    public void setEquipment(Item item) throws InvalidWeaponException {
+    public void setEquipment(Item item) throws InvalidWeaponException, InvalidArmorException {
 
         if (item.getSlot() == Slot.WEAPON) {
-            // check if types are equal to Axe, Hammer and sword. if so set equipment.
-            if (item.getType() == Weapon.Type.AXE || item.getType() == Weapon.Type.HAMMER || item.getType() == Weapon.Type.SWORD) {
+            //check level requirement
+            if (item.getRequiredLevel() > super.getLevel()) {
+                throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + " to equip.");
+            }
+            // check if types are equal to Axe, Hammer and sword. if so set equipment if not throw.
+            else if (item.getType() == Weapon.Type.AXE || item.getType() == Weapon.Type.HAMMER || item.getType() == Weapon.Type.SWORD) {
                 super.setEquipment(item.getSlot(), item);
-
-                //check level requirement
-            } else if (item.getRequiredLevel() > super.getLevel()) {
-                throw new InvalidWeaponException("The level of this weapon is to high for " + super.getName() + "to equip.");
-
-                // else throw
             } else {
                 throw new InvalidWeaponException(super.getName() + " can't equip " + item.getType() + " but can equip: Axes, hammers and swords.");
             }
         }
+
+        //Armor
     }
 }
