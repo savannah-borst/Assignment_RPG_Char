@@ -1,9 +1,12 @@
 package RPG;
 
+import java.util.HashMap;
+
 public abstract class Character {
     private final String name;
     private int level;
     private PrimaryAttribute basePrimaryAttributes;
+    private HashMap<Slot, Item> equipment;
     private PrimaryAttribute totalPrimaryAttributes;
 
     //constructor
