@@ -3,11 +3,12 @@ package RPG;
 import java.util.HashMap;
 
 public abstract class Character {
+    //fields
     private final String name;
     private int level;
     private PrimaryAttribute basePrimaryAttributes;
-    private HashMap<Slot, Item> equipment;
     private PrimaryAttribute totalPrimaryAttributes;
+    private HashMap<Slot, Item> equipment;
 
     //constructor
     public Character(String name, int strength, int dexterity, int intelligence) {
@@ -16,6 +17,7 @@ public abstract class Character {
         this.basePrimaryAttributes = new PrimaryAttribute(strength, dexterity, intelligence); //set up PrimaryAttribute
     }
 
+    //getters
     public String getName() {
         return name;
     }
@@ -24,6 +26,19 @@ public abstract class Character {
         return level;
     }
 
+    public String getBaseAttributes() {
+        return this.basePrimaryAttributes.getAllAttributes();
+    }
+
+    public HashMap<Slot, Item> getEquipment() {
+        return equipment;
+    }
+
+    public PrimaryAttribute getTotalPrimaryAttributes() {
+        return totalPrimaryAttributes;
+    }
+
+    //setters
     public void setLevel(){
         this.level++;
     }
@@ -32,8 +47,11 @@ public abstract class Character {
         this.basePrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
     }
 
-    public String getBaseAttributes() {
-        return this.basePrimaryAttributes.getAllAttributes();
+    public void setEquipment(HashMap<Slot, Item> equipment) {
+        this.equipment = equipment;
     }
 
+    public void setTotalPrimaryAttributes(PrimaryAttribute totalPrimaryAttributes) {
+        this.totalPrimaryAttributes = totalPrimaryAttributes;
+    }
 }
