@@ -123,5 +123,28 @@ class CharacterTest {
         });
     }
 
+    @Test
+    void wrongWeaponType_invalidInputs_shouldThrowInvalidWeaponException() {
+        assertThrows(InvalidWeaponException.class, new Executable() {
+
+            @Override
+            public void execute() throws Throwable {
+                Weapon testBow = new Weapon("Common Bow", 1, Slot.WEAPON, Weapon.Type.BOW, 12, 0.8);
+                testWarrior.Equip(testBow);
+            }
+        });
+    }
+
+    @Test
+    void wrongArmorType_invalidInputs_shouldThrowInvalidArmorException() {
+        assertThrows(InvalidArmorException.class, new Executable() {
+
+            @Override
+            public void execute() throws Throwable {
+                Armor testClothHead = new Armor("Common Plate Body Armor", 2, Slot.HEAD, Armor.Type.PLATE, 0, 0,5);
+                testWarrior.Equip(testClothHead);
+            }
+        });
+    }
 
 }
