@@ -25,7 +25,7 @@ public class Ranger extends Character {
     }
 
     public void equipWeapon(Weapon weapon) {
-        if (weapon.type != Weapon.WeaponType.BOW) {
+        if (weapon.type != Weapon.Type.BOW) {
             //throw custom InvalidWeaponException
         } else if (weapon.getRequiredLevel() > super.getLevel()) {
             //throw custom InvalidWeaponException

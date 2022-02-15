@@ -1,13 +1,13 @@
 package RPG;
 
 public class Weapon extends Item {
-    WeaponType type;
+    Type type;
     private final int damage;
     private final double attackPerSec;
     private final double DPS;
 
         //took some inspiration from: https://stackoverflow.com/questions/48627744/how-do-you-implement-an-enum-in-an-object-class-java/48627811
-    enum WeaponType {
+    enum Type {
         AXE,
         BOW,
         DAGGER,
@@ -18,7 +18,7 @@ public class Weapon extends Item {
     }
 
     //constructor
-    public Weapon(String name, int requiredLevel, Slot slot, WeaponType type, int damage, double attackPerSec) {
+    public Weapon(String name, int requiredLevel, Slot slot, Type type, int damage, double attackPerSec) {
         super(name, requiredLevel, slot);
         this.type = type;
         this.damage = damage;
@@ -26,7 +26,7 @@ public class Weapon extends Item {
         this.DPS = damage * attackPerSec;
     }
 
-    public WeaponType getType() {
+    public Type getType() {
         return type;
     }
 

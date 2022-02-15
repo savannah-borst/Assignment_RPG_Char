@@ -25,7 +25,7 @@ public class Mage extends Character {
     }
 
     public void equipWeapon(Weapon weapon) {
-        if (weapon.type != Weapon.WeaponType.STAFF || weapon.type != Weapon.WeaponType.WAND) {
+        if (weapon.type != Weapon.Type.STAFF || weapon.type != Weapon.Type.WAND) {
             //throw custom InvalidWeaponException
         } else if (weapon.getRequiredLevel() > super.getLevel()) {
             //throw custom InvalidWeaponException

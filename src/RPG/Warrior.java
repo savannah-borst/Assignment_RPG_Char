@@ -24,14 +24,14 @@ public class Warrior extends Character {
         return Integer.parseInt(attr[0]);
     }
 
-    @Override
+    //@Override
     public void equipWeapon(Weapon weapon) {
-        //if (weapon.type != Weapon.WeaponType.AXE || weapon.type != Weapon.WeaponType.HAMMER || weapon.type != Weapon.WeaponType.SWORD) {
+        if (weapon.type != Weapon.Type.AXE || weapon.type != Weapon.Type.HAMMER || weapon.type != Weapon.Type.SWORD) {
             //throw custom InvalidWeaponException
-        //} else if (weapon.getRequiredLevel() > super.getLevel()) {
+        } else if (weapon.getRequiredLevel() > super.getLevel()) {
             //throw custom InvalidWeaponException
-        //} else {
-            super.equipWeapon(weapon);
-        //}
+        } else {
+            //put into slot.
+        }
     }
 }

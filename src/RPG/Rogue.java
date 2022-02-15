@@ -25,7 +25,7 @@ public class Rogue extends Character {
     }
 
     public void equipWeapon(Weapon weapon) {
-        if (weapon.type != Weapon.WeaponType.DAGGER || weapon.type != Weapon.WeaponType.SWORD) {
+        if (weapon.type != Weapon.Type.DAGGER || weapon.type != Weapon.Type.SWORD) {
             //throw custom InvalidWeaponException
         } else if (weapon.getRequiredLevel() > super.getLevel()) {
             //throw custom InvalidWeaponException
