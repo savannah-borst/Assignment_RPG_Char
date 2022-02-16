@@ -73,9 +73,9 @@ public abstract class Character {
               // if weapon slot is not empty
         if (this.equipment.get(Slot.WEAPON) != null) {
             double weaponDPS = ((Weapon) this.equipment.get(Slot.WEAPON)).getDPS();
-            this.characterDPS = weaponDPS * (1 + mainAttribute / (double)100);
+            this.characterDPS = weaponDPS * (1 + (mainAttribute / 100));
         } else {
-            this.characterDPS = (1 + mainAttribute / (double)100);
+            this.characterDPS = (1 + (mainAttribute / 100));
         }
     }
 

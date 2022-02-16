@@ -167,4 +167,35 @@ class CharacterTest {
         assertTrue(expected.equals(actual));
     }
 
+    //DPS test
+    @Test
+    void calculateDPSNoWeapon_validInputs_shouldReturnDPS() {
+        double expected = 1 * (1 + (5 / 100));
+        double actual = testWarrior.getCharacterDPS();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void calculateDPSWithWeapon_validInputs_shouldReturnDPS() throws InvalidWeaponException {
+        Weapon testWeapon = new Weapon("Common Axe", 1, Slot.WEAPON, Weapon.Type.AXE, 7, 1.1);
+        testWarrior.Equip(testWeapon);
+
+        double expected = (7 * 1.1)*(1 + (5 / 100));
+        double actual = testWarrior.getCharacterDPS();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void calculateDPSWithWeaponArmor_validInputs_shouldReturnDPS() throws InvalidWeaponException, InvalidArmorException {
+        Weapon testWeapon = new Weapon("Common Axe", 1, Slot.WEAPON, Weapon.Type.AXE, 7, 1.1);
+        Armor testPlateBody = new Armor("Common Plate Body Armor", 1, Slot.BODY, Armor.Type.PLATE, 1, 0,0);
+        testWarrior.Equip(testWeapon);
+        testWarrior.Equip(testPlateBody);
+
+        double expected =  (7 * 1.1) * (1 + ((5+1) / 100));
+        double actual = testWarrior.getCharacterDPS();
+        assertEquals(expected, actual);
+
+    }
+
 }
