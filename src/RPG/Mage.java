@@ -24,24 +24,19 @@ public class Mage extends Character {
         return Integer.parseInt(attr[2]);
     }
 
-    //Equip to check Weapon and armor type. level check in Character abstract class
-    public void Equip(Item item) throws InvalidWeaponException, InvalidArmorException {
-        Slot slotCheck  = item.getSlot();
-        //Weapon
-        if (slotCheck == Slot.WEAPON) {
-            if (item.getWeaponType() == Weapon.Type.STAFF || item.getWeaponType() == Weapon.Type.WAND) {
-                super.setEquipment(item.getSlot(), item);
-            } else {
-                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Staffs, Wands.");
-            }
+    public void Equip(Weapon weapon) throws InvalidWeaponException{
+        if (weapon.getWeaponType() == Weapon.Type.STAFF || weapon.getWeaponType() == Weapon.Type.WAND) {
+            super.setEquipment(weapon);
+        } else {
+            throw new InvalidWeaponException(super.getName() + " can't equip " + weapon.getWeaponType() + " but can equip: Axes, Hammers and Swords.");
         }
-        //Armor
-        if (slotCheck == Slot.BODY || slotCheck == Slot.HEAD || slotCheck == Slot.LEGS) {
-            if (item.getArmorType() == Armor.Type.CLOTH) {
-                super.setEquipment(item.getSlot(), item);
-            } else {
-                throw new InvalidArmorException(super.getName() + " can't equip " + item.getArmorType() + " but can equip: Cloth.");
-            }
+    }
+
+    public void Equip(Armor armor) throws InvalidArmorException {
+        if (armor.getArmorType() == Armor.Type.CLOTH) {
+            super.setEquipment(armor);
+        } else {
+            throw new InvalidArmorException(super.getName() + " can't equip " + armor.getArmorType() + " but can equip: Mail, Plate.");
         }
     }
 }

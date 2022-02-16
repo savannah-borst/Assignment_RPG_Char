@@ -24,25 +24,19 @@ public class Ranger extends Character {
         return Integer.parseInt(attr[1]);
     }
 
-    //Equip to check Weapon and armor type. level check in Character abstract class
-    public void Equip(Item item) throws InvalidWeaponException, InvalidArmorException {
-        Slot slotCheck  = item.getSlot();
-        //Weapon
-        if (slotCheck == Slot.WEAPON) {
-            //check level requirement
-            if (item.getWeaponType() == Weapon.Type.BOW) {
-                super.setEquipment(item.getSlot(), item);
-            } else {
-                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Bow.");
-            }
+    public void Equip(Weapon weapon) throws InvalidWeaponException{
+        if (weapon.getWeaponType() == Weapon.Type.BOW) {
+            super.setEquipment(weapon);
+        } else {
+            throw new InvalidWeaponException(super.getName() + " can't equip " + weapon.getWeaponType() + " but can equip: Axes, Hammers and Swords.");
         }
-        //Armor
-        if (slotCheck == Slot.BODY || slotCheck == Slot.HEAD || slotCheck == Slot.LEGS) {
-            if (item.getArmorType() == Armor.Type.MAIL || item.getArmorType() == Armor.Type.LEATHER) {
-                super.setEquipment(item.getSlot(), item);
-            } else {
-                throw new InvalidArmorException(super.getName() + " can't equip " + item.getArmorType() + " but can equip: Leather, Mail.");
-            }
+    }
+
+    public void Equip(Armor armor) throws InvalidArmorException {
+        if (armor.getArmorType() == Armor.Type.LEATHER || armor.getArmorType() == Armor.Type.MAIL) {
+            super.setEquipment(armor);
+        } else {
+            throw new InvalidArmorException(super.getName() + " can't equip " + armor.getArmorType() + " but can equip: Mail, Plate.");
         }
     }
 }
