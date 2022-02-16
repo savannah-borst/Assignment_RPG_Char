@@ -6,6 +6,7 @@ public abstract class Character {
     //fields
     private final String name;
     private int level;
+    private double characterDPS;
     private PrimaryAttribute basePrimaryAttributes;
     private PrimaryAttribute totalPrimaryAttributes;
     private HashMap<Slot, Item> equipment;
@@ -17,7 +18,6 @@ public abstract class Character {
         this.basePrimaryAttributes = new PrimaryAttribute(strength, dexterity, intelligence); //set up PrimaryAttribute
         this.totalPrimaryAttributes = new PrimaryAttribute(); //set up empty total PrimaryAttribute
         this.equipment = new HashMap<>();
-
     }
 
     //getters
@@ -48,9 +48,22 @@ public abstract class Character {
         return totalPrimaryAttributes.getAllAttributes();
     }
 
+    public double getCharacterDPS() {
+        return characterDPS;
+    }
+
     //setters
     public void setLevel(){
         this.level++;
+    }
+
+    public void setCharacterDPS(int mainAttribute) {
+        if (this.equipment.get(Slot.WEAPON) != null) {
+            double weaponDPS = ((Weapon) this.equipment.get(Slot.WEAPON)).getDPS();
+            this.characterDPS = weaponDPS * (1 + mainAttribute / (double)100);
+        } else {
+            this.characterDPS = (1 + mainAttribute / (double)100);
+        }
     }
 
     //methods
@@ -98,5 +111,4 @@ public abstract class Character {
             throw new InvalidArmorException("The level of this armor is to high for " + this.getName() + " to equip.");
         }
     }
-
 }

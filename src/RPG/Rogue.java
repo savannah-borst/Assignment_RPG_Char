@@ -1,7 +1,6 @@
 package RPG;
 
 public class Rogue extends Character {
-    private double weaponDPS;
 
     public Rogue(String name) {
         super(name, 2, 6, 1);
@@ -12,15 +11,6 @@ public class Rogue extends Character {
         setLevel();
         updateBaseAttributes(1, 4, 1);
     }
-
-    public double DPS() {
-        //get string and split up
-        String[] attr = super.getTotalPrimaryAttributes().split(",");
-        //strength is at index 0
-        int strength = Integer.parseInt(attr[0]);
-        return this.weaponDPS * (1 + strength / (double)100);
-    }
-
 
     public void Equip(Weapon weapon) throws InvalidWeaponException{
         if (weapon.getWeaponType() == Weapon.Type.DAGGER || weapon.getWeaponType() == Weapon.Type.SWORD) {
