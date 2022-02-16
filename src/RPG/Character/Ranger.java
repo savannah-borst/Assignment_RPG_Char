@@ -1,39 +1,40 @@
-package RPG;
+package RPG.Character;
 
-public class Warrior extends Character {
+import RPG.Exceptions.InvalidArmorException;
+import RPG.Exceptions.InvalidWeaponException;
+import RPG.Item.Armor;
+import RPG.Item.Weapon;
 
-    public Warrior(String name) {
-        super(name, 5, 2, 1);
-        setCharacterDPS("strength");
+public class Ranger extends Character {
+
+    public Ranger(String name) {
+        super(name, 1, 7, 1);
+        setCharacterDPS("dexterity");
     }
 
     // level up + set attributes.
     public void levelup() {
         setLevel();
-        updateBaseAttributes(3, 2, 1);
+        updateBaseAttributes(1, 5, 1);
         //call set CharacterDPS to re-calculate
-        setCharacterDPS("strength");
+        setCharacterDPS("dexterity");
     }
 
-    //equip weapon
     public void Equip(Weapon weapon) throws InvalidWeaponException {
-        //check weapon types else throw
-        if (weapon.getWeaponType() == Weapon.Type.AXE || weapon.getWeaponType() == Weapon.Type.HAMMER || weapon.getWeaponType() == Weapon.Type.SWORD) {
+        if (weapon.getWeaponType() == Weapon.Type.BOW) {
             setEquipment(weapon);
             //call set CharacterDPS to re-calculate
-            setCharacterDPS("strength");
+            setCharacterDPS("dexterity");
         } else {
             throw new InvalidWeaponException(super.getName() + " can't equip " + weapon.getWeaponType() + " but can equip: Axes, Hammers and Swords.");
         }
     }
 
-    //equip armor
     public void Equip(Armor armor) throws InvalidArmorException {
-        //check armor types else throw
-        if (armor.getArmorType() == Armor.Type.MAIL || armor.getArmorType() == Armor.Type.PLATE) {
+        if (armor.getArmorType() == Armor.Type.LEATHER || armor.getArmorType() == Armor.Type.MAIL) {
             setEquipment(armor);
             //call set CharacterDPS to re-calculate
-            setCharacterDPS("strength");
+            setCharacterDPS("dexterity");
         } else {
             throw new InvalidArmorException(super.getName() + " can't equip " + armor.getArmorType() + " but can equip: Mail, Plate.");
         }

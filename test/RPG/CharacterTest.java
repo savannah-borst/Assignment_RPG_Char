@@ -1,9 +1,17 @@
 package RPG;
 
-import org.junit.jupiter.api.Assertions;
+import RPG.Character.Mage;
+import RPG.Character.Ranger;
+import RPG.Character.Rogue;
+import RPG.Character.Warrior;
+import RPG.Exceptions.InvalidArmorException;
+import RPG.Exceptions.InvalidWeaponException;
+import RPG.Item.Armor;
+import RPG.Item.Item;
+import RPG.Item.Slot;
+import RPG.Item.Weapon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import java.util.HashMap;
 

@@ -1,10 +1,10 @@
-package RPG;
+package RPG.Item;
 
 public class Weapon extends Item {
     private final double DPS;
 
         //took some inspiration from: https://stackoverflow.com/questions/48627744/how-do-you-implement-an-enum-in-an-object-class-java/48627811
-    enum Type {
+        public enum Type {
         AXE,
         BOW,
         DAGGER,

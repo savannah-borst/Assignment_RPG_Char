@@ -1,4 +1,4 @@
-package RPG;
+package RPG.Exceptions;
 
 public class InvalidArmorException extends Exception{
 

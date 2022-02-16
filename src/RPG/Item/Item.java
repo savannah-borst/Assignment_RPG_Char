@@ -1,4 +1,4 @@
-package RPG;
+package RPG.Item;
 
 public abstract class Item {
     private final String name;

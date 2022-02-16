@@ -1,4 +1,11 @@
-package RPG;
+package RPG.Character;
+
+import RPG.Exceptions.InvalidArmorException;
+import RPG.Exceptions.InvalidWeaponException;
+import RPG.Item.Armor;
+import RPG.Item.Item;
+import RPG.Item.Slot;
+import RPG.Item.Weapon;
 
 import java.util.HashMap;
 

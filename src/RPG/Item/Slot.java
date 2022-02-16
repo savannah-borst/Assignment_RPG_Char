@@ -1,4 +1,4 @@
-package RPG;
+package RPG.Item;
 
 public enum Slot {
     HEAD,

@@ -1,5 +1,10 @@
 package RPG;
 
+import RPG.Character.Warrior;
+import RPG.Item.Armor;
+import RPG.Item.Slot;
+import RPG.Item.Weapon;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {

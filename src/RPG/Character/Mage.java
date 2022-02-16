@@ -1,22 +1,27 @@
-package RPG;
+package RPG.Character;
 
-public class Ranger extends Character {
+import RPG.Exceptions.InvalidArmorException;
+import RPG.Exceptions.InvalidWeaponException;
+import RPG.Item.Armor;
+import RPG.Item.Weapon;
 
-    public Ranger(String name) {
-        super(name, 1, 7, 1);
+public class Mage extends Character {
+
+    public Mage(String name) {
+        super(name, 1, 1, 8);
         setCharacterDPS("dexterity");
     }
 
     // level up + set attributes.
     public void levelup() {
         setLevel();
-        updateBaseAttributes(1, 5, 1);
+        updateBaseAttributes(1, 1, 5);
         //call set CharacterDPS to re-calculate
         setCharacterDPS("dexterity");
     }
 
-    public void Equip(Weapon weapon) throws InvalidWeaponException{
-        if (weapon.getWeaponType() == Weapon.Type.BOW) {
+    public void Equip(Weapon weapon) throws InvalidWeaponException {
+        if (weapon.getWeaponType() == Weapon.Type.STAFF || weapon.getWeaponType() == Weapon.Type.WAND) {
             setEquipment(weapon);
             //call set CharacterDPS to re-calculate
             setCharacterDPS("dexterity");
@@ -26,7 +31,7 @@ public class Ranger extends Character {
     }
 
     public void Equip(Armor armor) throws InvalidArmorException {
-        if (armor.getArmorType() == Armor.Type.LEATHER || armor.getArmorType() == Armor.Type.MAIL) {
+        if (armor.getArmorType() == Armor.Type.CLOTH) {
             setEquipment(armor);
             //call set CharacterDPS to re-calculate
             setCharacterDPS("dexterity");

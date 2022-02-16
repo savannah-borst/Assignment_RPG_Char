@@ -1,10 +1,12 @@
-package RPG;
+package RPG.Item;
 
-public class Armor extends Item{
+import RPG.Character.PrimaryAttribute;
+
+public class Armor extends Item {
     private PrimaryAttribute armorAttributes;
 
     //took some inspiration from: https://stackoverflow.com/questions/48627744/how-do-you-implement-an-enum-in-an-object-class-java/48627811
-    enum Type {
+    public enum Type {
         CLOTH,
         LEATHER,
         MAIL,

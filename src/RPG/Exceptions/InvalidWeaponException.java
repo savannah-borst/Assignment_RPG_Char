@@ -1,4 +1,4 @@
-package RPG;
+package RPG.Exceptions;
 
 public class InvalidWeaponException extends Exception{
 
