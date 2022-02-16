@@ -31,8 +31,13 @@ public abstract class Character {
         return this.basePrimaryAttributes.getAllAttributes();
     }
 
-    public HashMap<Slot, Item> getEquipment() {
-        return equipment;
+
+    public String getEquipment() {
+        String print = "";
+        for (Slot i: this.equipment.keySet()) {
+            print = i + " " + this.equipment.get(i).getName();
+        }
+        return print;
     }
 
     public PrimaryAttribute getTotalPrimaryAttributes() {
