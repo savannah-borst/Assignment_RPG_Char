@@ -6,14 +6,15 @@ public class Main {
 	// write your code here
 
         Warrior thor = new Warrior("Thor");
+
         Weapon mjolnir = new Weapon("Mjolnir", 1, Slot.WEAPON, Weapon.Type.HAMMER,5, 4.5);
         thor.Equip(mjolnir);
 
         Armor chestPlate = new Armor("Chest plate", 1, Slot.BODY, Armor.Type.PLATE, 10, 2, 1);
         thor.Equip(chestPlate);
 
-        System.out.println(thor.getEquipment());
-        //System.out.println(thor.getCharEquipment());
+
+        thor.charStats();
 
         //TO DO
         //refactor setEquipment

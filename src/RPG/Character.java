@@ -113,13 +113,15 @@ public abstract class Character {
     }
 
     //return summary of character
-    @Override
-    public String toString() {
-        return "Character = " + this.getName() + '\n' +
-                "level = " + this.getLevel() + '\n' +
-                "Strength = " + this.totalPrimaryAttributes.getStrength() + '\n' +
-                "Dexterity = " + this.totalPrimaryAttributes.getDexterity() + '\n' +
-                "Intelligence = " + this.totalPrimaryAttributes.getIntelligence() + '\n' +
-                "characterDPS = " + characterDPS;
+    public String charStats() {
+        StringBuilder charStats = new StringBuilder();
+
+        return charStats.append(
+                "Character = " + this.getName() + '\n' +
+                        "level = " + this.getLevel() + '\n' +
+                        "Strength = " + this.totalPrimaryAttributes.getStrength() + '\n' +
+                        "Dexterity = " + this.totalPrimaryAttributes.getDexterity() + '\n' +
+                        "Intelligence = " + this.totalPrimaryAttributes.getIntelligence() + '\n' +
+                        "characterDPS = " + characterDPS).toString();
     }
 }
