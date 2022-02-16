@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTest {
@@ -140,6 +142,27 @@ class CharacterTest {
         String actual = exception.getMessage();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void equipCorrectWeapon_validInputs_shouldReturnTrue() throws InvalidArmorException, InvalidWeaponException {
+        Weapon testWeapon = new Weapon("Common Axe", 1, Slot.WEAPON, Weapon.Type.AXE, 7, 1.1);
+        testWarrior.Equip(testWeapon);
+        String expected = "WEAPON Common Axe";
+
+        String actual = testWarrior.getEquipment();
+
+        assertTrue(expected.equals(actual));
+    }
+
+    @Test
+    void equipCorrectArmor_validInputs_shouldReturnTrue() throws InvalidArmorException, InvalidWeaponException {
+        Armor testPlateBody = new Armor("Common Plate Body Armor", 1, Slot.BODY, Armor.Type.PLATE, 1, 0,0);
+        testWarrior.Equip(testPlateBody);
+        String expected = "BODY Common Plate Body Armor";
+
+        String actual = testWarrior.getEquipment();
+        assertTrue(expected.equals(actual));
     }
 
 }
