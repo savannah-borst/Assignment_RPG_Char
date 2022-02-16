@@ -39,8 +39,8 @@ public abstract class Character {
         return print;
     }
 
-    public PrimaryAttribute getTotalPrimaryAttributes() {
-        return totalPrimaryAttributes;
+    public String getTotalPrimaryAttributes() {
+        return totalPrimaryAttributes.getAllAttributes();
     }
 
     //setters
