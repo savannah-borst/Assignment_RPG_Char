@@ -1,7 +1,6 @@
 package RPG;
 
 public class Warrior extends Character {
-    private double DPS;
     private double weaponDPS;
 
     public Warrior(String name) {
@@ -19,20 +18,19 @@ public class Warrior extends Character {
         return super.getBaseAttributes();
     }
 
-    public void setDPS() {
-        //each point of strength increases warrior damage
+    public double DPS() {
+        //get string and split up
         String[] attr = super.getTotalPrimaryAttributes().split(",");
         //strength is at index 0
         int strength = Integer.parseInt(attr[0]);
-        this.DPS = this.weaponDPS * (1 + strength / 100);
+        return this.weaponDPS * (1 + strength / (double)100);
     }
 
-
-
-    //Equip to check Weapon and armor type. level check in Character abstract class
+    //equip weapon
     public void Equip(Weapon weapon) throws InvalidWeaponException {
         //getting weapon DPS
         this.weaponDPS = weapon.getDPS();
+        //check weapon types else throw
         if (weapon.getWeaponType() == Weapon.Type.AXE || weapon.getWeaponType() == Weapon.Type.HAMMER || weapon.getWeaponType() == Weapon.Type.SWORD) {
             super.setEquipment(weapon);
         } else {
@@ -40,7 +38,9 @@ public class Warrior extends Character {
         }
     }
 
+    //equip armor
     public void Equip(Armor armor) throws InvalidArmorException {
+        //check armor types else throw
         if (armor.getArmorType() == Armor.Type.MAIL || armor.getArmorType() == Armor.Type.PLATE) {
             super.setEquipment(armor);
         } else {

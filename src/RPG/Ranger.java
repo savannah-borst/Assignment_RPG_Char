@@ -1,6 +1,7 @@
 package RPG;
 
 public class Ranger extends Character {
+    private double weaponDPS;
 
     public Ranger(String name) {
         super(name, 1, 7, 1);
@@ -17,11 +18,12 @@ public class Ranger extends Character {
         return super.getBaseAttributes();
     }
 
-    public int getDamageIncrease() {
-        //each point of Dexterity increases ranger damage
-        String[] attr = super.getBaseAttributes().split(",");
-        //dexterity is at index 1
-        return Integer.parseInt(attr[1]);
+    public double DPS() {
+        //get string and split up
+        String[] attr = super.getTotalPrimaryAttributes().split(",");
+        //strength is at index 0
+        int strength = Integer.parseInt(attr[0]);
+        return this.weaponDPS * (1 + strength / (double)100);
     }
 
     public void Equip(Weapon weapon) throws InvalidWeaponException{

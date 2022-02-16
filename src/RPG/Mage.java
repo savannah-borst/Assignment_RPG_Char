@@ -1,6 +1,7 @@
 package RPG;
 
 public class Mage extends Character {
+    private double weaponDPS;
 
     public Mage(String name) {
         super(name, 1, 1, 8);
@@ -17,11 +18,12 @@ public class Mage extends Character {
         return super.getBaseAttributes();
     }
 
-    public int getDamageIncrease() {
-        //each point of intelligence increases mage damage
-        String[] attr = super.getBaseAttributes().split(",");
-        //intelligence is at index 2
-        return Integer.parseInt(attr[2]);
+    public double DPS() {
+        //get string and split up
+        String[] attr = super.getTotalPrimaryAttributes().split(",");
+        //strength is at index 0
+        int strength = Integer.parseInt(attr[0]);
+        return this.weaponDPS * (1 + strength / (double)100);
     }
 
     public void Equip(Weapon weapon) throws InvalidWeaponException{
