@@ -111,4 +111,15 @@ public abstract class Character {
             throw new InvalidArmorException("The level of this armor is to high for " + this.getName() + " to equip.");
         }
     }
+
+    //return summary of character
+    @Override
+    public String toString() {
+        return "Character = " + this.getName() + '\n' +
+                "level = " + this.getLevel() + '\n' +
+                "Strength = " + this.totalPrimaryAttributes.getStrength() + '\n' +
+                "Dexterity = " + this.totalPrimaryAttributes.getDexterity() + '\n' +
+                "Intelligence = " + this.totalPrimaryAttributes.getIntelligence() + '\n' +
+                "characterDPS = " + characterDPS;
+    }
 }
