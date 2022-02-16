@@ -13,11 +13,6 @@ public class Mage extends Character {
         updateBaseAttributes(1, 1, 5);
     }
 
-    @Override
-    public String getBaseAttributes() {
-        return super.getBaseAttributes();
-    }
-
     public double DPS() {
         //get string and split up
         String[] attr = super.getTotalPrimaryAttributes().split(",");

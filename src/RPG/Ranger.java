@@ -13,11 +13,6 @@ public class Ranger extends Character {
         updateBaseAttributes(1, 5, 1);
     }
 
-    @Override
-    public String getBaseAttributes() {
-        return super.getBaseAttributes();
-    }
-
     public double DPS() {
         //get string and split up
         String[] attr = super.getTotalPrimaryAttributes().split(",");

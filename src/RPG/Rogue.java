@@ -13,11 +13,6 @@ public class Rogue extends Character {
         updateBaseAttributes(1, 4, 1);
     }
 
-    @Override
-    public String getBaseAttributes() {
-        return super.getBaseAttributes();
-    }
-
     public double DPS() {
         //get string and split up
         String[] attr = super.getTotalPrimaryAttributes().split(",");

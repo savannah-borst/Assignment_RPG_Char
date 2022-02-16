@@ -13,11 +13,6 @@ public class Warrior extends Character {
         updateBaseAttributes(3, 2, 1);
     }
 
-    @Override
-    public String getBaseAttributes() {
-        return super.getBaseAttributes();
-    }
-
     public double DPS() {
         //get string and split up
         String[] attr = super.getTotalPrimaryAttributes().split(",");
