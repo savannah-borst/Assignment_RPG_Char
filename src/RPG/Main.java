@@ -15,9 +15,5 @@ public class Main {
 
 
         thor.charStats();
-
-        //TO DO
-        //refactor setEquipment
-
     }
 }
