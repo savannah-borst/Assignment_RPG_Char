@@ -48,8 +48,13 @@ public abstract class Character {
         this.level++;
     }
 
-    public void setBaseAttributes(int strength, int dexterity, int intelligence) {
-        this.basePrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
+    //update base attributes (happens when level up to add new attributes)
+    public void updateBaseAttributes(int strength, int dexterity, int intelligence) {
+        this.basePrimaryAttributes.setAllAttributes(
+                this.basePrimaryAttributes.getStrength() + strength,
+                this.basePrimaryAttributes.getDexterity() + dexterity,
+                this.basePrimaryAttributes.getIntelligence() + intelligence
+        );
     }
 
     public void setTotalPrimaryAttributes(PrimaryAttribute totalPrimaryAttributes) {

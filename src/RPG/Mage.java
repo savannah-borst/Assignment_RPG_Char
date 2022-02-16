@@ -9,8 +9,8 @@ public class Mage extends Character {
 
     // level up + set attributes.
     public void levelup() {
-        super.setLevel();
-        super.setBaseAttributes(1, 1, 5);
+        setLevel();
+        updateBaseAttributes(1, 1, 5);
     }
 
     @Override

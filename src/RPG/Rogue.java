@@ -9,8 +9,8 @@ public class Rogue extends Character {
 
     // level up + set attributes.
     public void levelup() {
-        super.setLevel();
-        super.setBaseAttributes(1, 4, 1);
+        setLevel();
+        updateBaseAttributes(1, 4, 1);
     }
 
     @Override
