@@ -33,13 +33,13 @@ public abstract class Character {
         return this.basePrimaryAttributes.getAllAttributes();
     }
 
-    //needs refactor?
-    public String getEquipment() {
-        String print = "";
+
+    public HashMap<Slot, Item> getEquipment() {
+        // cycle through all equipment and print type + name
         for (Slot i: this.equipment.keySet()) {
-            print = i + " " + this.equipment.get(i).getName();
+            System.out.println(i + " " + this.equipment.get(i).getName());
         }
-        return print;
+        return equipment;
     }
 
     public String getTotalPrimaryAttributes() {
@@ -80,7 +80,7 @@ public abstract class Character {
     }
 
     public void setEquipment(Weapon weapon) throws InvalidWeaponException {
-        // level check
+        // level check else throw
         if (weapon.getRequiredLevel() <= this.level) {
             // add to HashMap
             equipment.put(weapon.getSlot(), weapon);
@@ -90,7 +90,7 @@ public abstract class Character {
     }
 
     public void setEquipment(Armor armor) throws InvalidArmorException {
-        // level check
+        // level check else throw
         if (armor.getRequiredLevel() <= this.level) {
             // add to HashMap
             equipment.put(armor.getSlot(), armor);
