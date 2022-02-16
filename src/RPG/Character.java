@@ -57,7 +57,20 @@ public abstract class Character {
         this.level++;
     }
 
-    public void setCharacterDPS(int mainAttribute) {
+    public void setCharacterDPS(String main) {
+        //first go to setTotal to check the gear and get up to date attributes
+        updateTotalPrimaryAttributes();
+        //  initialize mainAttr
+        int mainAttribute = 0;
+        // check which is main  attribute + get.
+              if  (main.equals("strength")){
+                  mainAttribute = totalPrimaryAttributes.getStrength();
+              }  else if (main.equals("dexterity")) {
+                  mainAttribute = totalPrimaryAttributes.getDexterity();
+              } else if (main.equals("intelligence")) {
+                  mainAttribute = totalPrimaryAttributes.getIntelligence();
+              }
+              // if weapon slot is not empty
         if (this.equipment.get(Slot.WEAPON) != null) {
             double weaponDPS = ((Weapon) this.equipment.get(Slot.WEAPON)).getDPS();
             this.characterDPS = weaponDPS * (1 + mainAttribute / (double)100);
