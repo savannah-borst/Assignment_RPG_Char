@@ -95,12 +95,14 @@ public abstract class Character {
         int intelligence = 0;
         //loop through gear character is wearing now
         for (Slot i: this.equipment.keySet()) {
-            //split armor attributes in array
-            String[] parts = ((Armor) this.equipment.get(i)).getArmorAttributes().split(",");
-            //
-            strength = Integer.parseInt(parts[0]) + this.basePrimaryAttributes.getStrength();
-            dexterity = Integer.parseInt(parts[1]) + this.basePrimaryAttributes.getDexterity();
-            intelligence = Integer.parseInt(parts[2]) + this.basePrimaryAttributes.getIntelligence();
+            if (i == Slot.HEAD || i == Slot.BODY || i == Slot.LEGS) {
+                //split armor attributes in array
+                String[] parts = ((Armor) this.equipment.get(i)).getArmorAttributes().split(",");
+                //
+                strength = Integer.parseInt(parts[0]) + this.basePrimaryAttributes.getStrength();
+                dexterity = Integer.parseInt(parts[1]) + this.basePrimaryAttributes.getDexterity();
+                intelligence = Integer.parseInt(parts[2]) + this.basePrimaryAttributes.getIntelligence();
+            }
         }
         this.totalPrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
     }
