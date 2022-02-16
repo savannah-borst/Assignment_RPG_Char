@@ -14,7 +14,7 @@ public class Rogue extends Character {
 
     public void Equip(Weapon weapon) throws InvalidWeaponException{
         if (weapon.getWeaponType() == Weapon.Type.DAGGER || weapon.getWeaponType() == Weapon.Type.SWORD) {
-            super.setEquipment(weapon);
+            setEquipment(weapon);
         } else {
             throw new InvalidWeaponException(super.getName() + " can't equip " + weapon.getWeaponType() + " but can equip: Axes, Hammers and Swords.");
         }
@@ -22,7 +22,7 @@ public class Rogue extends Character {
 
     public void Equip(Armor armor) throws InvalidArmorException {
         if (armor.getArmorType() == Armor.Type.LEATHER || armor.getArmorType() == Armor.Type.MAIL) {
-            super.setEquipment(armor);
+            setEquipment(armor);
         } else {
             throw new InvalidArmorException(super.getName() + " can't equip " + armor.getArmorType() + " but can equip: Mail, Plate.");
         }
