@@ -15,7 +15,9 @@ public abstract class Character {
         this.name = name;
         this.level = 1;
         this.basePrimaryAttributes = new PrimaryAttribute(strength, dexterity, intelligence); //set up PrimaryAttribute
+        this.totalPrimaryAttributes = new PrimaryAttribute(); //set up empty total PrimaryAttribute
         this.equipment = new HashMap<>();
+
     }
 
     //getters
@@ -31,6 +33,7 @@ public abstract class Character {
         return this.basePrimaryAttributes.getAllAttributes();
     }
 
+    //needs refactor?
     public String getEquipment() {
         String print = "";
         for (Slot i: this.equipment.keySet()) {
@@ -40,6 +43,8 @@ public abstract class Character {
     }
 
     public String getTotalPrimaryAttributes() {
+        //first go to setTotal to check the gear and get up to date attributes
+        updateTotalPrimaryAttributes();
         return totalPrimaryAttributes.getAllAttributes();
     }
 
@@ -48,6 +53,7 @@ public abstract class Character {
         this.level++;
     }
 
+    //methods
     //update base attributes (happens when level up to add new attributes)
     public void updateBaseAttributes(int strength, int dexterity, int intelligence) {
         this.basePrimaryAttributes.setAllAttributes(
@@ -57,12 +63,26 @@ public abstract class Character {
         );
     }
 
-    public void setTotalPrimaryAttributes(PrimaryAttribute totalPrimaryAttributes) {
-        this.totalPrimaryAttributes = totalPrimaryAttributes;
+    public void updateTotalPrimaryAttributes() {
+        int strength = 0;
+        int dexterity = 0;
+        int intelligence = 0;
+        //loop through gear character is wearing now
+        for (Slot i: this.equipment.keySet()) {
+            //split armor attributes in array
+            String[] parts = ((Armor) this.equipment.get(i)).getArmorAttributes().split(",");
+            //
+            strength = Integer.parseInt(parts[0]) + this.basePrimaryAttributes.getStrength();
+            dexterity = Integer.parseInt(parts[1]) + this.basePrimaryAttributes.getDexterity();
+            intelligence = Integer.parseInt(parts[2]) + this.basePrimaryAttributes.getIntelligence();
+        }
+        this.totalPrimaryAttributes.setAllAttributes(strength, dexterity, intelligence);
     }
 
     public void setEquipment(Weapon weapon) throws InvalidWeaponException {
+        // level check
         if (weapon.getRequiredLevel() <= this.level) {
+            // add to HashMap
             equipment.put(weapon.getSlot(), weapon);
         } else {
             throw new InvalidWeaponException("The level of this weapon is to high for " + this.getName() + " to equip.");
@@ -70,7 +90,9 @@ public abstract class Character {
     }
 
     public void setEquipment(Armor armor) throws InvalidArmorException {
+        // level check
         if (armor.getRequiredLevel() <= this.level) {
+            // add to HashMap
             equipment.put(armor.getSlot(), armor);
         } else {
             throw new InvalidArmorException("The level of this armor is to high for " + this.getName() + " to equip.");
