@@ -128,15 +128,17 @@ public abstract class Character {
     }
 
     //return summary of character
-    public String charStats() {
+    public void charStats() {
         StringBuilder charStats = new StringBuilder();
 
-        return charStats.append(
+        charStats.append(
                 "Character = " + this.getName() + '\n' +
                         "level = " + this.getLevel() + '\n' +
                         "Strength = " + this.totalPrimaryAttributes.getStrength() + '\n' +
                         "Dexterity = " + this.totalPrimaryAttributes.getDexterity() + '\n' +
                         "Intelligence = " + this.totalPrimaryAttributes.getIntelligence() + '\n' +
                         "characterDPS = " + characterDPS).toString();
+
+        System.out.println(charStats);
     }
 }
