@@ -15,7 +15,7 @@ public class Armor extends Item{
         this.armorAttributes = new PrimaryAttribute(strength, dexterity, intelligence);
     }
 
-    public String getBaseAttributes() {
+    public String getArmorAttributes() {
         return this.armorAttributes.getAllAttributes();
     }
 
