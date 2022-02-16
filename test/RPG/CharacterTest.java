@@ -100,51 +100,46 @@ class CharacterTest {
     //Items and equipment tests
     @Test
     void highLevelWeapon_invalidInputs_shouldThrowInvalidWeaponException() {
-        // help from: https://www.codejava.net/testing/junit-test-exception-examples-how-to-assert-an-exception-is-thrown
-        assertThrows(InvalidWeaponException.class, new Executable() {
+        Weapon testWeapon = new Weapon("Common Axe", 2, Slot.WEAPON, Weapon.Type.AXE, 7, 1.1);
+        String expected = "The level of this weapon is to high for " + testWarrior.getName() + " to equip.";
 
-            @Override
-           public void execute() throws Throwable {
-               Weapon testWeapon = new Weapon("Common Axe", 2, Slot.WEAPON, Weapon.Type.AXE, 7, 1.1);
-               testWarrior.Equip(testWeapon);
-           }
-        });
+        Exception exception = assertThrows(InvalidWeaponException.class, () -> testWarrior.Equip(testWeapon));
+        String actual = exception.getMessage();
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void highLevelArmor_invalidInputs_shouldThrowInvalidArmorException() {
-        assertThrows(InvalidArmorException.class, new Executable() {
+        Armor testPlateBody = new Armor("Common Plate Body Armor", 2, Slot.BODY, Armor.Type.PLATE, 1, 0,0);
+        String expected = "The level of this armor is to high for " + testWarrior.getName() + " to equip.";
 
-            @Override
-            public void execute() throws Throwable {
-                Armor testPlateBody = new Armor("Common Plate Body Armor", 2, Slot.BODY, Armor.Type.PLATE, 1, 0,0);
-                testWarrior.Equip(testPlateBody);
-            }
-        });
+        Exception exception = assertThrows(InvalidArmorException.class, () -> testWarrior.Equip(testPlateBody));
+        String actual = exception.getMessage();
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void wrongWeaponType_invalidInputs_shouldThrowInvalidWeaponException() {
-        assertThrows(InvalidWeaponException.class, new Executable() {
+        Weapon testBow = new Weapon("Common Bow", 1, Slot.WEAPON, Weapon.Type.BOW, 12, 0.8);
+        String expected = testWarrior.getName() + " can't equip " + testBow.getWeaponType() + " but can equip: Axes, Hammers and Swords.";
 
-            @Override
-            public void execute() throws Throwable {
-                Weapon testBow = new Weapon("Common Bow", 1, Slot.WEAPON, Weapon.Type.BOW, 12, 0.8);
-                testWarrior.Equip(testBow);
-            }
-        });
+        Exception exception = assertThrows(InvalidWeaponException.class, () -> testWarrior.Equip(testBow));
+        String actual = exception.getMessage();
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void wrongArmorType_invalidInputs_shouldThrowInvalidArmorException() {
-        assertThrows(InvalidArmorException.class, new Executable() {
+        Armor testClothHead = new Armor("Common Plate Body Armor", 1, Slot.HEAD, Armor.Type.CLOTH, 0, 0,5);
+        String expected = testWarrior.getName() + " can't equip " + testClothHead.getArmorType() + " but can equip: Mail, Plate.";
 
-            @Override
-            public void execute() throws Throwable {
-                Armor testClothHead = new Armor("Common Plate Body Armor", 2, Slot.HEAD, Armor.Type.PLATE, 0, 0,5);
-                testWarrior.Equip(testClothHead);
-            }
-        });
+        Exception exception = assertThrows(InvalidArmorException.class, () -> testWarrior.Equip(testClothHead));
+        String actual = exception.getMessage();
+
+        assertEquals(expected, actual);
     }
 
 }
