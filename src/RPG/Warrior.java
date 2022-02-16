@@ -24,25 +24,22 @@ public class Warrior extends Character {
         return Integer.parseInt(attr[0]);
     }
 
+
+
     //Equip to check Weapon and armor type. level check in Character abstract class
-    public void Equip(Item item) throws InvalidWeaponException, InvalidArmorException {
-        Slot slotCheck  = item.getSlot();
-        //Weapon
-        if (slotCheck == Slot.WEAPON) {
-            // check if types are equal to Axe, Hammer and sword. if so set equipment if not throw.
-            if (item.getWeaponType() == Weapon.Type.AXE || item.getWeaponType() == Weapon.Type.HAMMER || item.getWeaponType() == Weapon.Type.SWORD) {
-                super.setEquipment(item.getSlot(), item);
-            } else {
-                throw new InvalidWeaponException(super.getName() + " can't equip " + item.getWeaponType() + " but can equip: Axes, Hammers and Swords.");
-            }
+    public void Equip(Weapon weapon) throws InvalidWeaponException{
+        if (weapon.getWeaponType() == Weapon.Type.AXE || weapon.getWeaponType() == Weapon.Type.HAMMER || weapon.getWeaponType() == Weapon.Type.SWORD) {
+            super.setEquipment(weapon);
+        } else {
+            throw new InvalidWeaponException(super.getName() + " can't equip " + weapon.getWeaponType() + " but can equip: Axes, Hammers and Swords.");
         }
-        //Armor
-        if (slotCheck == Slot.BODY || slotCheck == Slot.HEAD || slotCheck == Slot.LEGS) {
-            if (item.getArmorType() == Armor.Type.MAIL || item.getArmorType() == Armor.Type.PLATE) {
-                super.setEquipment(item.getSlot(), item);
-            } else {
-                throw new InvalidArmorException(super.getName() + " can't equip " + item.getArmorType() + " but can equip: Mail, Plate.");
-            }
+    }
+
+    public void Equip(Armor armor) throws InvalidArmorException {
+        if (armor.getArmorType() == Armor.Type.MAIL || armor.getArmorType() == Armor.Type.PLATE) {
+            super.setEquipment(armor);
+        } else {
+            throw new InvalidArmorException(super.getName() + " can't equip " + armor.getArmorType() + " but can equip: Mail, Plate.");
         }
     }
 }

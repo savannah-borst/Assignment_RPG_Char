@@ -31,7 +31,6 @@ public abstract class Character {
         return this.basePrimaryAttributes.getAllAttributes();
     }
 
-
     public String getEquipment() {
         String print = "";
         for (Slot i: this.equipment.keySet()) {
@@ -57,19 +56,20 @@ public abstract class Character {
         this.totalPrimaryAttributes = totalPrimaryAttributes;
     }
 
-    public void setEquipment(Slot slot, Item item) throws InvalidWeaponException, InvalidArmorException {
-        //Level check throws exception for appropriate gear type
-        if (item.getRequiredLevel() > this.getLevel()) {
-            if (slot == Slot.WEAPON) {
-                throw new InvalidWeaponException("The level of this weapon is to high for " + this.getName() + " to equip.");
-            } else if (slot == Slot.BODY || slot == Slot.LEGS || slot == Slot.HEAD) {
-                throw new InvalidArmorException("The level of this armor is to high for " + this.getName() + " to equip.");
-            }
+    public void setEquipment(Weapon weapon) throws InvalidWeaponException {
+        if (weapon.getRequiredLevel() <= this.level) {
+            equipment.put(weapon.getSlot(), weapon);
         } else {
-            equipment.put(slot, item);
+            throw new InvalidWeaponException("The level of this weapon is to high for " + this.getName() + " to equip.");
         }
     }
 
-
+    public void setEquipment(Armor armor) throws InvalidArmorException {
+        if (armor.getRequiredLevel() <= this.level) {
+            equipment.put(armor.getSlot(), armor);
+        } else {
+            throw new InvalidArmorException("The level of this armor is to high for " + this.getName() + " to equip.");
+        }
+    }
 
 }
