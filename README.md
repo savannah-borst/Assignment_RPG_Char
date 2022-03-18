@@ -1,4 +1,4 @@
-# RPG Characters \\ Java \\ Noroff Assignment
+# Noroff Bootcamp Assignment1: Build a console application in Java
 This is a console application. Within this application you are able to:
 - create characters
 - level them up
